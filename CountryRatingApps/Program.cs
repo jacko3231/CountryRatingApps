@@ -38,26 +38,31 @@ country4.AddPoint(5);
 
 var result4 = country4.Result;
 
-Console.WriteLine($"Country {country1.Name} recevied {country1.Result} points");
-Console.WriteLine($"Country {country2.Name} recevied {country2.Result} points");
-Console.WriteLine($"Country {country3.Name} recevied {country3.Result} points");
-Console.WriteLine($"Country {country4.Name} recevied {country4.Result} points");
+Console.WriteLine($"Country {country1.Name} received {result1} points");
+Console.WriteLine($"Country {country2.Name} received {result2} points");
+Console.WriteLine($"Country {country3.Name} received {result3} points");
+Console.WriteLine($"Country {country4.Name} received {result4} points");
 
-if(result1 > result2 && result1 > result3 && result1 > result4)
+var countries = new List<Country> { country1, country2, country3, country4 };
+var maxResult = int.MinValue; 
+Country maxResultCountry = null; 
+
+foreach (var country in countries)
 {
-    Console.WriteLine($" Country which recevied the most points is {country1.Name} with {country1.Result} points");
+    if (country.Result > maxResult)
+    {
+        maxResult = country.Result;
+        maxResultCountry = country;
+    }
 }
-else if(result2 > result1 && result2 > result3 && result2 > result4)
+
+if (maxResultCountry != null)
 {
-    Console.WriteLine($" Country which recevied the most points is {country2.Name} with {country2.Result} points");
+    Console.WriteLine($"Country which received the most points is {maxResultCountry.Name} with {maxResult} points");
 }
-else if(result3 > result1 && result3 > result2 && result3 > result4)
+else
 {
-    Console.WriteLine($" Country which recevied the most points is {country3.Name} with {country3.Result} points");
-}
-else if(result4 > result1 && result4 > result2 && result4 > result3)
-{
-    Console.WriteLine($" Country which recevied the most points is {country4.Name} with {country4.Result} points");
+    Console.WriteLine("No country found");
 }
 
 

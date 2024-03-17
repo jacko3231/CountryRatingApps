@@ -41,7 +41,7 @@ List<Country> countries = new List<Country>()
     country1, country2, country3, country4
 };
 
-int maxResult = -1; // Ustawiamy na wartość minimalną
+int maxResult = -1; // should be parse like minValue here , please look on it!
 Country countryWithMaxPoints = null;
 
 foreach (var country in countries)
@@ -54,8 +54,7 @@ foreach (var country in countries)
 }
 
 Console.WriteLine(countryWithMaxPoints.Name);
-
-
+Console.WriteLine(countryWithMaxPoints.Result);
 
 
 
